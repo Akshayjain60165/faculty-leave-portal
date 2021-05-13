@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for i in all %} 
+     <h4>profid : {{i.pro_id}}</h4>
+     <h4>deparment name : {{i.dept_name}}</h4>
+     <h4>name : {{i.name}}</h4>
+     <h4>position : {{i.pos}}</h4>
+     <h4>biography : {{i.biography}}</h4>
+     <h4>contactnumber : {{i.contactnumber}}</h4>
+    
+     {% endfor %}
+    <h2  text-align: center> educations </h2>
+     {% for i in education %} 
+     <h4> Institute : {{i.institute}}</h4>
+     <h4> from : {{i.datefrom}}</h4>
+     <h4> to : {{i.dateto}}</h4>
+     <h4> Branch : {{i.major}}</h4>
+     {% endfor %}
+
+     <h2  text-align: center>Courses taught</h2>
+     {% for i in course %} 
+     <h4>course code :{{i.courseid}}</h4>
+     <h4> course name :{{i.coursename}}</h4>
+     {% endfor %}
+
+   
+
+</body>
+</html>

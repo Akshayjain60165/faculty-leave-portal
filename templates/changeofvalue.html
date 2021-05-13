@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for i in all %} 
+    <h4>profid : {{i.pro_id}}</h4>
+    <h4>deparment name : {{i.dept_name}}</h4>
+    <h4>name : {{i.name}}</h4>
+    <h4>position : {{i.pos}}</h4>
+    <h4>biography : {{i.biography}}</h4>
+    <h4>contactnumber : {{i.contactnumber}}</h4>
+   
+    {% endfor %}
+   <h2  text-align: center> educations </h2>
+    {% for i in education %} 
+    <h4> Institute : {{i.institute}}</h4>
+    <h4> from : {{i.datefrom}}</h4>
+    <h4> to : {{i.dateto}}</h4>
+    <h4> Branch : {{i.major}}</h4>
+    {% endfor %}
+
+    <h2  text-align: center>Courses taught</h2>
+    {% for i in course %} 
+    <h4>course code :{{i.courseid}}</h4>
+    <h4> course name :{{i.coursename}}</h4>
+    {% endfor %}
+
+
+     <h1  text-align: center>insert value in education</h1>
+     <form action="changeineducation", method = "POST">
+        {% csrf_token %}
+        <!---  <label for="fname" style="color:white">Enter the Institute ID No. : </label>
+          <input type="text"  name="id" placeholder ="id" color = lightblue><br> --->
+  
+          <label for="lname" style="color:white">Institute </label>
+          <input type="text"  name="institute" placeholder ="institute"><br>
+  
+          <label for="lname" style="color:white">starting date</label>
+          <input type="date"  name="datefrom" placeholder ="datefrom"><br>
+  
+          <label for="lname" style="color:white">Ending date</label>
+          <input type="date"  name="dateto" placeholder ="dateto"><br>
+  
+          <label for="lname" style="color:white">Major </label>
+          <input type="text"  name="major" placeholder ="Major"><br>
+  
+          <input type="submit" value="Submit">
+  
+  
+        </form>
+
+        <h1  text-align: center>insert value in course</h1>
+        <form action="changeincourse", method = "POST">
+           {% csrf_token %}
+           <!---  <label for="fname" style="color:white">Enter the Institute ID No. : </label>
+             <input type="text"  name="id" placeholder ="id" color = lightblue><br> --->
+     
+             <label for="lname" style="color:white">CourseID </label>
+             <input type="text"  name="courseid" placeholder ="courseid"><br>
+            
+             <label for="lname" style="color:white">Coursename </label>
+             <input type="text"  name="coursename" placeholder ="coursename"><br>
+
+     
+             <input type="submit" value="Submit">
+     
+     
+           </form>
+           <h2> delete from education</h2>
+           {% for i in all %} 
+            {%for j in education %} 
+              {% if i.pro_id == j.pro_id %} 
+              <h4>education</h4>
+              <form action="deleteineducation", method = "POST">
+                {% csrf_token %}
+              <!---  <input type="checkbox" id="id" name="id" value={{j.pro_id}}>
+                <label for="id">{{j.pro_id}}</label><br>--->
+                <input type="checkbox" id="institute" name="institute" value={{j.institute}}>
+                <label for="institute"> {{j.institute}}</label><br>
+                <input type="checkbox" id="major" name="major" value={{j.major}}>
+                <label for="major"> {{j.major}}</label><br><br>
+                <input type="submit" value="Submit">
+              </form>
+              {% endif %} 
+              {% endfor %} 
+              {% endfor %} 
+
+            <h2>delete from course</h2>
+              {% for i in all %} 
+            {%for j in course %} 
+              {% if i.pro_id == j.pro_id %} 
+              <h4>course</h4>
+              <form action="deleteincourse", method = "POST">
+                {% csrf_token %}
+             <!---   <input type="checkbox" id="id" name="id" value={{j.pro_id}}>
+                <label for="id">{{j.pro_id}}</label><br> --->
+                <input type="checkbox" id="courseid" name="courseid" value={{j.courseid}}>
+                <label for="courseid"> {{j.courseid}}</label><br>
+                <input type="checkbox" id="coursename" name="coursename" value={{j.coursename}}>
+                <label for="coursename"> {{j.coursename}}</label><br><br>
+                <input type="submit" value="Submit">
+              </form>
+              {% endif %} 
+              {% endfor %} 
+              {% endfor %} 
+    
+</body>
+</body>
+</html>
