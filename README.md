@@ -12,3 +12,5 @@ In database:
 
 In templates :
      os.path(DIR_BASE,templates)
+
+for any Doubts mail me on 2018CEB1002@iitrpr.ac.in
