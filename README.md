@@ -7,7 +7,7 @@ In database:
 'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dbms',
         'USER':'postgres',
-        'PASSWORD' : 'Akshay@123',
+        'PASSWORD' : '',
         'HOST' : 'localhost',
 
 In templates :
